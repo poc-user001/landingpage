@@ -1,5 +1,5 @@
 # landingpage
-# frist open the project or clone the project from git path https://github.com/amarjeetkumar2515/landingpage.git
+# frist open the project or clone the project from git path https://github.com/poc-user001/landingpage.git
 # Direct import in Vs code editor
 # in vs code open view->command palette..
 # in the cmd write git: clone
