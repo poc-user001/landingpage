@@ -1,0 +1,29 @@
+<mvc:View controllerName="com.golit.lp.landingpage.controller.Home" 
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m" xmlns:core="sap.ui.core"
+  xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:u="sap.ui.unified" xmlns:ux="sap.uxap" 
+  displayBlock="true">
+ <ux:ObjectPageLayout class="landingPageBackPanel" sections="{path:'sections>/',templateShareable:true}" enableLazyLoading="false">
+    <ux:sections >
+      <ux:ObjectPageSection title="{sections>SecTitle}">
+        <ux:subSections>
+          <ux:ObjectPageSubSection title=" ">
+            <ux:blocks>
+              <Panel content="{path:'sections>tileItems/',templateShareable:true}" 
+                expandable="false" expanded="true" expandAnimation="false" 
+                   class="sapUiNoMargin">
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" 
+                   header="{sections>header}" subheader="{sections>subheader}" 
+                    press="_onTileBlockPress">
+                  <TileContent unit="{sections>unit}" footer="{sections>footer}">
+                    <ImageContent src="{sections>src}"/>
+                  </TileContent>
+                </GenericTile>
+              </Panel>
+            </ux:blocks>
+          </ux:ObjectPageSubSection>
+        </ux:subSections>
+      </ux:ObjectPageSection>
+    </ux:sections>
+  </ux:ObjectPageLayout>
+</mvc:View>
