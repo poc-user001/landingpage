@@ -7,15 +7,20 @@
   >
   <f:ShellBar title="header" 
    homeIcon="" showMenuButton="true" showNavButton="false" showCopilot="true"
-    showSearch="false" showNotifications="false" showProductSwitcher="false">
+    showSearch="false" showNotifications="false" avatarPressed="onProfileButtonPress"
+    showProductSwitcher="false">
     <f:profile>
       <f:Avatar initials="Amarjeet"/>
     </f:profile>
     <f:searchManager>
-      <f:SearchManager id="searchField" search="handlerSearchFieldSearch" liveChange="handlerSearchFieldLiveEvent" suggest="handlerSearchSuggestEvent" enableSuggestions="true" suggestionItems="{
-					path: '/ProductCollection',
-					sorter: { path: 'Name' }
-				}">
+      <f:SearchManager id="searchField" search="handlerSearchFieldSearch" 
+      liveChange="handlerSearchFieldLiveEvent" suggest="handlerSearchSuggestEvent" 
+      enableSuggestions="true" 
+      suggestionItems="{
+					path: '/SalesOrgSet',
+					sorter: { path: 'description' }
+				}"
+        >
         <f:suggestionItems>
           <SuggestionItem text="{Name}" description="{path:'Price'} {path:'CurrencyCode'}" key="{ProductId}"/>
         </f:suggestionItems>

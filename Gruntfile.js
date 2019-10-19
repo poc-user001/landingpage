@@ -12,7 +12,7 @@ module.exports = function (grunt) {
             proxy: {
                 // host: '101.53.157.190',
                 host: 'localhost',
-                port: 8080
+                port: 3030
             }
         },
         connect: {
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                 }
             },
             proxies: [{
-                    context: "/destinations/Golit",
+                    context: "/golit/odata/app",
                     host: '<%= settings.proxy.host %>',
                     port: '<%= settings.proxy.port %>',
                     headers: {
@@ -52,10 +52,10 @@ module.exports = function (grunt) {
                     changeOrigin: true,
                     rewrite: {
                         // "^/destinations/Golit": "/hr-odata-modules/golit/dev/odata.svc/"
-                        "^/destinations/Golit": ""
+                        "^/golit/odata/app": "/golit/app/services/"
                     },
                     headers: {
-                        "X-Proxied-Header": "added"
+                        "X-Proxied-Header": "*"
                     },
                     ws: true
                 }
@@ -119,6 +119,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     // grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('default', ['connect', 'watch']);
+    // grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('default', ['configureProxies:server', 'connect', 'watch']);
 
 }

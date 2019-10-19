@@ -9,7 +9,16 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"dataSources": {}
+		"dataSources": {
+			"mainService": {
+				"uri": "/golit/odata/app/md/masterdata.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
 	},
 	"sap.ui": {
 		"technology": "UI5",
@@ -58,14 +67,24 @@
 				"settings": {
 					"bundleName": "com.golit.lp.landingpage.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"updateGroupId": "$auto"
+				}
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -80,8 +99,7 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
+			"routes": [{
 					"name": "home",
 					"pattern": "",
 					"target": "home"
