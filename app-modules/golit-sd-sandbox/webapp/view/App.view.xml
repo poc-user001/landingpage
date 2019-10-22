@@ -18,11 +18,11 @@
       enableSuggestions="true" 
       suggestionItems="{
 					path: '/SalesOrgSet',
-					sorter: { path: 'description' }
+					sorter: { path: 'salesorgname' }
 				}"
         >
         <f:suggestionItems>
-          <SuggestionItem text="{Name}" description="{path:'Price'} {path:'CurrencyCode'}" key="{ProductId}"/>
+          <SuggestionItem text="{salesorgname}" description="{salesorg}" key="{salesorg}"/>
         </f:suggestionItems>
       </f:SearchManager>
     </f:searchManager>
