@@ -10,11 +10,12 @@
 			"version": "2.03.8"
 		},
 		"dataSources": {
-			"northwind": {
-				"uri": "https://cors-anywhere.herokuapp.com/https://services.odata.org/V2/Northwind/Northwind.svc",
+			"mainService": {
+				"uri": "/golit/odata/app/md/masterdata.svc/",
 				"type": "OData",
 				"settings": {
-					"odataVersion": "2.0"
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
@@ -56,20 +57,22 @@
 				}
 			},
 			"": {
-				"dataSource": "northwind",
-				"defaultBindingMode": "TwoWay",
+				"dataSource": "mainService",
+				"preload": true,
 				"settings": {
-					"useBatch": false,
-					"defaultCountMode": "Inline"
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"updateGroupId": "$auto"
 				}
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -84,8 +87,7 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
+			"routes": [{
 					"name": "list",
 					"pattern": "",
 					"target": "list"

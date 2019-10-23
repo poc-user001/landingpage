@@ -9,10 +9,10 @@ sap.ui.define(
 		"use strict"
 		return Controller.extend("com.golit.lp.landingpage.controller.App", {
 			onInit: function () {
-				
 				Log.info(this.getView().getControllerName(), "onInit");
 				this.crud = new CRUD(this.getView().getModel());
-				Log.info(this.crud);
+				this.oSF = this.getView().byId("searchField");
+				// Log.info(this.crud);
 				this.getOwnerComponent().getRouter().attachRouteMatched(this._onRouteMatched, this)
 			},
 			_onRouteMatched: function (oEvent) {
@@ -25,7 +25,7 @@ sap.ui.define(
 			onProfileButtonPress: function () {
 				Log.info(this.getView().getControllerName(), "onUserNamePress");
 				debugger
-				var oModel = this.getView().getModel();
+				/* var oModel = this.getView().getModel();
 				var vFilters = [];
 				vFilters.push(new Filter("id", FilterOperator.EQ, '1'));
 				vFilters.push(new Filter("description", FilterOperator.EQ, 'test'));
@@ -36,21 +36,82 @@ sap.ui.define(
 				var url = oModel.sServiceUrl + "SalesOrgSet?$filter=" + filter + "&$select=" + select;
 				console.log(url);
 				$.ajax({
-					// url: oModel.sServiceUrl + "SalesOrgSet/?$filter=id eq 'Smith and jhone' and description eq 'Mary' and currencyCode eq 'IN'",
 					url: url,
 					type: 'GET',
-					/* or POST or DELETE or PUT or PATCH or MERGE */
 					datatype: 'json',
 					success: function (oResult) {
-						/* do something */
 						debugger
 					},
 					error: function (oResult) {
 						debugger
-						/* do something */
 					}
-				});
+				}); */
+				this.crud.whenRead({
+					path: "SalesOrgSet"
+				}).then(function(oData){
+					debugger
+					this.showData();
+				}.bind(this),
+				function(error){
+					debugger
+
+				}.bind(this));
+			},
+			showData:function(){
+
+			},
+			menuButtonPressed:function(){
+				debugger
+				this.checkCreateMethod();
+			},
+			checkCreateMethod:function(){
+				var newRecord = {
+					"salesorg": "1236",
+					"salesorgname": "ui create tested",
+					"ccode": "1235",
+					"currency": "INR",
+					"address": "banglore",
+					"headertext": "UI5",
+					"footertext": "TEST POST from UI",
+					"signaturetext": "ODATA UI",
+					"sendertext": "AMARJEET",
+					"refstoresalesdocid": 123,
+					"custintercobill": 123455677,
+					"salesorgcalendar": null
+				};
+				this.crud.whenCreate({
+					path: "SalesOrgSet",
+					data: newRecord
+				}).then(function (oData) {
+						debugger
+						this.showData();
+					}.bind(this),
+					function (error) {
+						debugger
+
+					}.bind(this));
+			},
+			handlerSearchSuggestEvent: function (oEvent) {
+				var sValue = oEvent.getParameter("suggestValue"),
+					aFilters = [];
+
+				if (sValue) {
+					aFilters = [
+						new Filter([
+							new Filter("salesorg", function (sText) {
+								return (sText || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+							}),
+							new Filter("salesorgname", function (sDes) {
+								return (sDes || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+							})
+						])
+					];
+				}
+
+				this.oSF.getBinding("suggestionItems").filter(aFilters);
+				this.oSF.suggest();
 			}
 
-		})
-	})
+
+		});
+	});

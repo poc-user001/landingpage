@@ -6,10 +6,12 @@
     showHeader="true" 
     enableScrolling="true" 
     class="categoriesPage"
-    title="first Tiles">
-    <Table inset="false" 
-      busyIndicatorDelay="0" 
-      items="{/Categories}">
+    title="first Tiles test">
+    <Table  
+      items="{
+					path: '/SalesOrgSet',
+					sorter: { path: 'salesorgname' }
+				}">
       <headerToolbar>
         <OverflowToolbar>
           <content>
@@ -21,22 +23,22 @@
       </headerToolbar>
       <columns>
         <Column width="12em">
-          <Text text="ID" />
+          <Text text="SalesOrg" />
         </Column>
         <Column>
           <Text text="Name" />
         </Column>
         <Column>
-          <Text text="City" />
+          <Text text="Address" />
         </Column>
       </columns>
       <items>
         <ColumnListItem type="Navigation" 
           press="onPressListItem">
           <cells>
-            <Text text="{CategoryID}" />
-            <Text text="{CategoryName}" />
-            <Text text="{Description}" />
+            <Text text="{salesorg}" />
+            <Text text="{salesorgname}" />
+            <Text text="{address}" />
           </cells>
         </ColumnListItem>
       </items>
