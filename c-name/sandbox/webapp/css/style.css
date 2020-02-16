@@ -1,0 +1,12 @@
+    .initalLogonStyle.sapMBtn {
+        border-radius: 50%;
+        background-color: #cae4fb;
+    }
+    
+    .initalLogonStyle .sapMBtnContent {
+        color: black;
+    }
+    
+    .panelBottomBorder .sapMPanelContent:not(.sapMPanelBGTransparent) {
+        border: none;
+    }

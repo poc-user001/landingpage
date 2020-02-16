@@ -1,0 +1,65 @@
+[{
+    "SecTitle": "Master Data",
+    "tileItems": [{
+        "header": "CompanCode",
+        "subheader": "Company Code",
+        "unit": "",
+        "footer": "Company Code Information",
+        "src": "sap-icon://company-view",
+        "navigationInfo": {
+            "uriToLoad": "./mscompanycode/webapp/",
+            "projectName": "firsttiles",
+            "componentName": "com.golit.ut.uitemplate",
+            "projectId": "",
+            "tileType": "display",
+            "semanticObject": "firsttiles",
+            "navigationParameter": ""
+        }
+    }, {
+        "header": "Customer",
+        "subheader": "customer details",
+        "unit": "",
+        "footer": "Customer Details",
+        "src": "sap-icon://home",
+        "navigationInfo": {
+            "uriToLoad": "",
+            "projectName": "Customer",
+            "componentName": "",
+            "projectId": "",
+            "tileType": "display",
+            "semanticObject": "Diary",
+            "navigationParameter": ""
+        }
+    }, {
+        "header": "First Tile Header3",
+        "subheader": "First Tile SubHeader3",
+        "unit": "INR",
+        "footer": "First Tile footer3",
+        "src": "sap-icon://home-share",
+        "navigationInfo": {
+            "uriToLoad": "",
+            "projectName": "FirstHeader3",
+            "componentName": "",
+            "projectId": "",
+            "navigationParameter": ""
+        }
+    }]
+}, {
+    "SecTitle": "Expense-Diary",
+    "tileItems": [{
+        "header": "Add Expense",
+        "subheader": "Exense",
+        "unit": "",
+        "footer": "Expense Creation",
+        "src": "sap-icon://home",
+        "navigationInfo": {
+            "uriToLoad": "",
+            "projectName": "ExpenseCreate",
+            "componentName": "com.golit.ed.ExpenseC",
+            "projectId": "",
+            "tileType": "display",
+            "semanticObject": "Diary",
+            "navigationParameter": ""
+        }
+    }]
+}]

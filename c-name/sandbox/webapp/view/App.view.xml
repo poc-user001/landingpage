@@ -1,0 +1,32 @@
+<mvc:View controllerName="com.golit.lp.landingpage.controller.App" 
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m" 
+  xmlns:l="sap.ui.layout"
+  displayBlock="true"
+  xmlns:core="sap.ui.core"
+  xmlns:tnt="sap.tnt"
+  >
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://menu2" type="Transparent" press="onMenuButtonPress"/>
+		<Image src="image/goalit-small-logo.png" />
+    <ToolbarSpacer/>
+    <Text text="Name of the Tool"/>
+    <ToolbarSpacer/>
+    <SearchField tooltip="Search Tile" placeholder="Search Tile" width="auto" >
+    </SearchField>
+		<!-- <Button icon="sap-icon://search" type="Transparent" press="onSearchIconPress">
+    <layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"  shrinkable="true"/>
+			</layoutData>
+      </Button> -->
+		<Button text="AK" type="Transparent" class="sapUiTinyMarginEnd initalLogonStyle" 
+    press="onInitalLoginPress">
+    <layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"  shrinkable="true"/>
+			</layoutData>
+      </Button>
+	</tnt:ToolHeader>
+  <App  id="_landingpageShellId" defaultTransitionName="flip">
+  </App>
+  
+</mvc:View>

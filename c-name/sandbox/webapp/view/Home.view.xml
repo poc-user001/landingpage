@@ -11,7 +11,7 @@
             <ux:blocks>
               <Panel content="{path:'sections>tileItems/',templateShareable:true}" 
                 expandable="false" expanded="true" expandAnimation="false" 
-                   class="sapUiNoMargin">
+                   class="sapUiNoMargin panelBottomBorder">
                 <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" 
                    header="{sections>header}" subheader="{sections>subheader}" 
                     press="_onTileBlockPress">
